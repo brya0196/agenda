@@ -1,3 +1,3 @@
 module.exports = {
-    appPort: 3000
+    appPort: process.env.PORT || 3000
 }

@@ -4,6 +4,8 @@ const bodyParser = require('body-parser')
 // archivo de configuracion
 const config = require('./app.config')
 
+const HomeController = require('./controllers/home')
+
 const app = express() //instancieted the app
 
 // llamando el middleware BodyParser
@@ -15,9 +17,7 @@ app.set('views', './views')
 app.set('view engine', 'pug')
 
 //primera peticion al app
-app.get('/', function(req, res) {
-    res.render('index', { msg: 'Eoo' })
-})
+app.get('/', HomeController.index)
 
 //donde se abrira la aplicacion
 app.listen(config.appPort, function() {
