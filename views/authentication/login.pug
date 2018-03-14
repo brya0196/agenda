@@ -4,16 +4,27 @@ block css
     link(rel="stylesheet", href="/css/login.css")
 
 block content
-    form.ui.middle.aligned.two.column.centered.grid.form#login_form
+    form.ui.middle.aligned.two.column.centered.grid.form#login_form(action="verify", method="post")
+        if error
+            div.row
+                div.ui.message
+                    div.header Usuario o Contraseña
+                    p!= msg
+
         div.row
             div.column
+                div.row
+                    i.fas.fa-chess-rook
                 div.field
                     div.ui.left.icon.input
                         i.user.icon
-                        input(type="text", placeholder="usuario")
+                        input(type="text", name="username", placeholder="usuario")
                 div.field
                     div.ui.left.icon.input
                         i.lock.icon
-                        input(type="password", placeholder="contraseña")
+                        input(type="password", name="password", placeholder="contraseña")
                 
                 button.ui.button(type="submit") Enviar
+
+block js
+    script(src="/js/authentication.js")
