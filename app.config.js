@@ -7,6 +7,5 @@ module.exports = {
     dbusername: 'root',
     dbpassword: '',
     dbhost: 'localhost',
-    dbport: '',
     db: 'mysql'
 }
