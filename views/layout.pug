@@ -7,9 +7,11 @@ html(lang="en")
         title Agenda
 
         link(rel="stylesheet", href="/bower_components/semantic/dist/semantic.min.css")
+        block css
     body
-
-        block content
+        div.ui.grid.container
+            block content
 
         script(src="/bower_components/jquery/dist/jquery.min.js")
         script(src="/bower_components/semantic/dist/semantic.min.js")
+        block js

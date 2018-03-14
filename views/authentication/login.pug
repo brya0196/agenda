@@ -1,0 +1,19 @@
+extend ./../layout.pug
+
+block css
+    link(rel="stylesheet", href="/css/login.css")
+
+block content
+    form.ui.middle.aligned.two.column.centered.grid.form#login_form
+        div.row
+            div.column
+                div.field
+                    div.ui.left.icon.input
+                        i.user.icon
+                        input(type="text", placeholder="usuario")
+                div.field
+                    div.ui.left.icon.input
+                        i.lock.icon
+                        input(type="password", placeholder="contraseña")
+                
+                button.ui.button(type="submit") Enviar

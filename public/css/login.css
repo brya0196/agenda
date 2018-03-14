@@ -1,0 +1,21 @@
+.ui.grid.container {
+    display: table-row;
+    text-align: center;
+}
+
+.ui.column.centered.grid {
+    vertical-align: middle;
+    display: table-cell;
+    text-align: center;
+}
+
+body{
+    display: table;
+    text-align: center;
+    width: 100%;
+    background: linear-gradient(to bottom right,rgb(11, 54, 52), rgb(91, 201, 193));
+}
+
+.ui.left.icon.input {
+    color: rgb(11, 54, 52)
+}
