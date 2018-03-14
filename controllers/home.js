@@ -1,5 +1,5 @@
 function index (req, res) {
-    res.render('index', { msg: 'Prueba' })
+    res.render('home/index', { msg: 'Prueba' })
 }
 
 module.exports = {
