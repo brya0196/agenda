@@ -7,11 +7,12 @@ const homeRoutes = require('./routes/HomeRoute')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+// routing
 app.use('/', homeRoutes)
 
 // cargando el pug view
 app.set('views', './views')
 app.set('view engine', 'pug')
 
-
+// exporting the app logic
 module.exports = app
