@@ -1,13 +1,10 @@
 const app = require('./app')
-const Sequelize = require('sequelize')
-
-// archivo de configuracion
 const config = require('./app.config')
+const sequelize = require('./app.db')
+const dbcontext = require('./models/dbcontext')
 
-const sequelize = new Sequelize(config.dbname, config.dbusername, config.dbpassword, {
-    host: config.dbhost,
-    dialect: config.db
-})
+// syncing te dbcontext
+dbcontext.user.sync()
 
 //verificamos que alla conecion a la base de datos
 sequelize.authenticate()
