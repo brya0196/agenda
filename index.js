@@ -5,6 +5,7 @@ const dbcontext = require('./models/dbcontext')
 
 // syncing te dbcontext
 dbcontext.user.sync()
+dbcontext.diary.sync()
 
 //verificamos que alla conecion a la base de datos
 sequelize.authenticate()

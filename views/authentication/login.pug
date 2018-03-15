@@ -4,17 +4,17 @@ block css
     link(rel="stylesheet", href="/css/login.css")
 
 block content
-    form.ui.middle.aligned.two.column.centered.grid.form#login_form(action="verify", method="post")
-        if error
-            div.row
-                div.ui.message
-                    div.header Usuario o Contraseña
-                    p!= msg
-
+    form.ui.middle.aligned.four.column.centered.grid.form#login_form(action="verify", method="post")
         div.row
             div.column
                 div.row
                     i.fas.fa-chess-rook
+                if error
+                    div.row
+                        div.ui.message
+                            div.header Usuario o Contraseña
+                            p!= msg
+                    br
                 div.field
                     div.ui.left.icon.input
                         i.user.icon
