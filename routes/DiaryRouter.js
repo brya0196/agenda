@@ -1,9 +1,9 @@
 const express = require('express')
-const HomeController = require('./../controllers/home')
+const DiaryController = require('./../controllers/DiaryController')
 
 const api = express.Router()
 
 //primera peticion al app
-api.get('/', HomeController.index)
+api.get('/', DiaryController.index)
 
 module.exports = api

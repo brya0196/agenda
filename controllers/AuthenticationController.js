@@ -1,10 +1,16 @@
 const url = require('url')
+const session = require('express-session')
+
 const user = require('./../models/user')
 
-let id = null
-
 function login (req, res) {
-        res.render('authentication/login' , { error: false, msg: '' })
+    let session = req.session
+
+    if(session.session_id) {
+        res.redirect('/agenda')
+        return
+    }
+    res.render('authentication/login' , { error: false, msg: '' })
 }
 
 function verifyUser (req, res) {
@@ -24,20 +30,32 @@ function verifyUser (req, res) {
 
     user.findOne({ where: { username: req.body.username }, password: req.body.password })
         .then(users => {
-            // console.log(users)
-            // if(users) res.redirect({ user: users}, '/agenda')
-            if(users) res.redirect(url.format({ pathname: '/agenda', params: users.dataValues}))
+            let session = req.session
+            
+            if(users) {
+                session.session_id = users.dataValues.id
+                session.name = users.dataValues.name + " " + users.dataValues.last_name
+                res.redirect('/agenda')
+            }
             if(!users) res.render('authentication/login',{ error: true, msg: 'Usuario o Contraseña incorrectos' })
             return
         })
         .catch(err => {
-            res.send({ error: true, msg: 'Usuario o Contraseña incorrectos' })
+            console.log(err)
             return
         })
+}
+
+function logout (req, res) {
+    req.session.destroy(function(err) {
+        if(err) console.log(err)
+        if(!err) res.redirect('/')
+    })
 }
 
 
 module.exports = {
     login,
-    verifyUser
+    verifyUser,
+    logout
 }
